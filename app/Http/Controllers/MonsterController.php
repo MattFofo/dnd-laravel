@@ -24,7 +24,7 @@ class MonsterController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        return view('monsters.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class MonsterController extends Controller
     {
         $formData = $request->all();
         Monster::create($formData);
-        return redirect()->route('Monsters.index');
+        return redirect()->route('monsters.index');
     }
 
     /**
