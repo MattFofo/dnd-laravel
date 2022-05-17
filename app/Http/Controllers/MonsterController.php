@@ -24,7 +24,7 @@ class MonsterController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
