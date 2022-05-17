@@ -1,5 +1,5 @@
 @extends('../templates.base')
-@section('titlePage', 'Edit Monster -' . '$monster->title');
+@section('titlePage', "Edit Monster - $monster->name")
 
 @section('content')
     <div class="container mt-3">
@@ -14,7 +14,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('monsters.update'), $monster->id }}">
+                <form method="POST" action="{{ route('monsters.update', $monster->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">

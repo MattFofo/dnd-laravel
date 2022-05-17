@@ -99,7 +99,7 @@ class MonsterController extends Controller
 
         $formData = $request->all();
         $monster->update($formData);
-        return view('Monsters.show', compact('monster'));
+        return redirect()->route('monsters.index', $monster->id);
     }
 
     /**
