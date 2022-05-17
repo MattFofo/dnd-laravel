@@ -62,6 +62,8 @@ class MonsterController extends Controller
     public function edit(Monster $monster)
     {
         //
+
+        return view('monsters.edit', compact('monster'));
     }
 
     /**
@@ -74,6 +76,10 @@ class MonsterController extends Controller
     public function update(Request $request, Monster $monster)
     {
         //
+
+        $formData = $request->all();
+        $monster->update($formData);
+        return view('Monsters.show', compact('monster'));
     }
 
     /**
