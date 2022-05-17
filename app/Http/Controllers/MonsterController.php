@@ -7,6 +7,25 @@ use Illuminate\Http\Request;
 
 class MonsterController extends Controller
 {
+    protected $validationRules = [
+        "index"             => "required",
+        "name"              => "required",
+        "type"              => "required",
+        "alignment"         => "required",
+        "size"              => "required",
+        "hit_dice"          => "required",
+        "languages"         => "required",
+        "armor_class"       => "required",
+        "hit_points"        => "required",
+        "strength"          => "required",
+        "dexterity"         => "required",
+        "constitution"      => "required",
+        "intelligence"      => "required",
+        "wisdom"            => "required",
+        "charisma"          => "required",
+        "xp"                => "required",
+        "challenge_rating"  => "required"
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +33,9 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        //
+        $monsters = Monster::paginate(15);
+
+        return view('monsters.index', compact('monsters'));
     }
 
     /**
@@ -35,6 +56,7 @@ class MonsterController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationRules);
         $formData = $request->all();
         Monster::create($formData);
         return redirect()->route('monsters.index');
@@ -48,7 +70,7 @@ class MonsterController extends Controller
      */
     public function show(Monster $monster)
     {
-        //
+        return view('Monsters.show', compact('monster'));
     }
 
     /**
@@ -84,6 +106,6 @@ class MonsterController extends Controller
     {
         $monster->delete();
 
-        return redirect()->route('monster.index');
+        return redirect()->route('monsters.index');
     }
 }
