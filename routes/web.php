@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::resource('monsters', 'MonsterController');
+Route::resource('/monsters', 'MonsterController');
