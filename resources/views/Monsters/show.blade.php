@@ -1,6 +1,6 @@
 @extends('templates.base')
 
-@section('pageTitle', 'Details - {{ $monster->name }}')
+@section('pageTitle', "Details - $monster->name")
 
 @section('content')
     <main>
