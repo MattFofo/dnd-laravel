@@ -1,6 +1,6 @@
 @extends('../templates.base')
 
-@section('title')
+@section('titlePage', 'Add new monster')
 
 @section('content')
       <div class="container mt-3">
