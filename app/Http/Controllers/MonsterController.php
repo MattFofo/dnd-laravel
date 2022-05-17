@@ -96,7 +96,7 @@ class MonsterController extends Controller
     public function update(Request $request, Monster $monster)
     {
         //
-
+        $request->validate($this->validationRules);
         $formData = $request->all();
         $monster->update($formData);
         return redirect()->route('monsters.index', $monster->id);
