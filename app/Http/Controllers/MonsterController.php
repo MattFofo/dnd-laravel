@@ -86,6 +86,6 @@ class MonsterController extends Controller
     {
         $monster->delete();
 
-        return redirect()->route('monster.index');
+        return redirect()->route('monsters.index');
     }
 }
