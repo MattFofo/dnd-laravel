@@ -14,7 +14,9 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        //
+        $monsters = Monster::paginate(15);
+
+        return view('monsters.index', compact('monsters'));
     }
 
     /**
